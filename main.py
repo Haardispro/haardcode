@@ -15,6 +15,10 @@ def save_file():
 def exit():
     w.destroy()
 
+def preferences():
+    import preferences.py
+
+
 #Font
 font = ("Cascadia Code", 14)
 
