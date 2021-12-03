@@ -5,10 +5,10 @@ import os
 
 w = Tk()
 w.title("Haardcode")
-global name
-name = None
 
 def save_as_file():
+    global name
+    name = None
     f=asksaveasfile(mode="w", defaultextension=".txt")
     if f is None:
         return 
