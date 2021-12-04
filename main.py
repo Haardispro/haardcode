@@ -21,6 +21,7 @@ def save_as_file():
     f.close()
 
 def save():
+    """
     if name is not None:
         with open (name, 'r+') as myfile:
             data = myfile.read()
@@ -35,6 +36,9 @@ def save():
             myfile.truncate()
     elif name is None and filename is None:
         save_as_file()
+    """
+    return
+
 def exit():
     w.destroy()
 
