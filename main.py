@@ -2,9 +2,11 @@ from tkinter import *
 from tkinter.filedialog import *
 import subprocess
 import os
+#import keyboard
 
 w = Tk()
 w.title("Haardcode")
+w.geometry("800x600")
 
 def save_as_file():
     global name
@@ -83,11 +85,22 @@ menubar.add_command(label="About")
 #Help 
 menubar.add_command(label="Help")
 
+#Zoom Text
+"""
+n = 14
+font1 = ("Cascadia Code", n)
+if keyboard.is_pressed('ctrl+='):
+    n = n + 1
+elif keyboard.is_pressed('ctrl+-'):
+    n = n - 1 
+"""
 #Main Text Box
-main_text = Text(w, width=60, height=20, wrap=WORD, font=font, bg="#282a36", fg="#f8f8f2", insertbackground='white', highlightthickness=0, relief=SOLID)
+main_text = Text(w, width=800, height=600, wrap=WORD, font=font, bg="#282a36", fg="#f8f8f2", insertbackground='white', highlightthickness=0, relief=SOLID)
 
 #positions
 main_text.grid(row=1, column=0)
+
+w.winfo_geometry()
 
 w.config(menu=menubar)
 w.mainloop()
