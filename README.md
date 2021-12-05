@@ -1,1 +1,1 @@
-Resizing of window and Save not working
+Save not working
