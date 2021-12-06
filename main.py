@@ -1,8 +1,9 @@
 from tkinter import *
 from tkinter.filedialog import *
-import subprocess
+import tkinter.font
 import os
 #import keyboard
+#import subprocess
 
 w = Tk()
 w.title("Haardcode")
@@ -58,7 +59,8 @@ def open_file():
         #print(content)
 
 #Font
-font = ("Cascadia Code", 14)
+n=14
+font = tkinter.font.Font(family='Cascadia Code', size=n)
 
 #Menubar
 menubar=Menu(w, font=font, bg="#32333d", fg="#f8f8f2", relief=FLAT)
@@ -85,15 +87,6 @@ menubar.add_command(label="About")
 #Help 
 menubar.add_command(label="Help")
 
-#Zoom Text
-"""
-n = 14
-font1 = ("Cascadia Code", n)
-if keyboard.is_pressed('ctrl+='):
-    n = n + 1
-elif keyboard.is_pressed('ctrl+-'):
-    n = n - 1 
-"""
 #Main Text Box
 main_text = Text(w, width=800, height=600, wrap=WORD, font=font, bg="#282a36", fg="#f8f8f2", insertbackground='white', highlightthickness=0, relief=SOLID)
 
