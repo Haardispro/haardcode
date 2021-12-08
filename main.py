@@ -57,6 +57,8 @@ def open_file():
         main_text.delete(0.0, END)
         main_text.insert(END, content)
         #print(content)
+def preferences():
+    import preferences
 
 #Font
 n=14
@@ -78,7 +80,7 @@ menubar.add_cascade(label="File", menu=files)
 
 #Edit
 edit = Menu(menubar, tearoff=0, font=font, bg="#282828", fg="#f8f8f2", relief=FLAT)
-edit.add_command(label="Preferences")
+edit.add_command(label="Preferences", command=preferences)
 menubar.add_cascade(label="Edit", menu=edit)
 
 #About
