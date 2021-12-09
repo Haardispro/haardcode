@@ -25,6 +25,7 @@ font_style_label = Label(x, text="Font Style :", bg=bg, font=font, fg="white")
 #this has to be a dropdown menu
 
 #Colors 
+custom_color_label = Label(x, text="Your custom colors:", font=font, bg=bg, fg="white")
 bg_color_label = Label(x, text="Enter Bg Color: ", font=font, bg=bg, fg="white")
 fg_color_label = Label(x, text="Enter Fg Color: ", font=font, bg=bg, fg="white")
 fg_color = Entry(x, width=20, font=font)
@@ -37,7 +38,7 @@ options = [
 ]
 clicked = StringVar(x)
 clicked.set( "Gruvbox" )
-color_drop_label = Label(x, text="Themes: ", font=font, fg="white", bg=bg)
+color_drop_label = Label(x, text="Pre-configured Themes: ", font=font, fg="white", bg=bg)
 color_drop = OptionMenu( x , clicked , *options )
 color_drop.config(font=font)
 #Positions
@@ -50,10 +51,11 @@ font_name.grid(row=1, column=2, pady=10)
 font_size_label.grid(row=2, column=1, pady=10)
 font_size.grid(row=2, column=2, pady=10)
 #Colors
-bg_color_label.grid(row=4, column=1, pady=10)
-fg_color_label.grid(row=5, column=1, pady=10)
-bg_color.grid(row=4, column=2, pady=10)
-fg_color.grid(row=5, column=2, pady=10)
-color_drop.grid(row=6, column=2, pady=10)
-color_drop_label.grid(row=6, column=1, padx=10)
+custom_color_label.grid(row=4, column=1, pady=10)
+bg_color_label.grid(row=5, column=1, pady=10)
+fg_color_label.grid(row=6, column=1, pady=10)
+bg_color.grid(row=5, column=2, pady=10)
+fg_color.grid(row=6, column=2, pady=10)
+color_drop.grid(row=7, column=2, pady=10)
+color_drop_label.grid(row=7, column=1, padx=10)
 x.mainloop()
