@@ -60,6 +60,8 @@ def open_file():
 def preferences():
     import preferences
 
+def about():
+    import about
 #Font
 n=14
 font = tkinter.font.Font(family='Cascadia Code', size=n)
@@ -84,7 +86,7 @@ edit.add_command(label="Preferences", command=preferences)
 menubar.add_cascade(label="Edit", menu=edit)
 
 #About
-menubar.add_command(label="About")
+menubar.add_command(label="About", command=about)
 
 #Help 
 menubar.add_command(label="Help")

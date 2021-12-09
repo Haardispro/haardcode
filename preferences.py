@@ -32,7 +32,8 @@ bg_color = Entry(x, width=20, font=font)
 #dropdown menu
 options = [
 	"Gruvbox",
-	"Dracula"
+	"Dracula", 
+        "Solarized Dark"
 ]
 clicked = StringVar(x)
 clicked.set( "Gruvbox" )
