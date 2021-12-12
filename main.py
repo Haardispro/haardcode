@@ -10,7 +10,6 @@ w.title("Haardcode")
 w.geometry("800x600")
 
 def save_as_file():
-    global name
     name = None
     f=asksaveasfile(mode="w", defaultextension=".txt")
     if f is None:
@@ -23,24 +22,28 @@ def save_as_file():
     f.write(text2save)
     f.close()
 
+def open_file():
+    filename = askopenfile(mode = "r")
+    if filename is not None:
+        content = filename.read()
+        main_text.delete(0.0, END)
+        main_text.insert(END, content)
+
 def save():
-    """
-    if name is not None:
-        with open (name, 'r+') as myfile:
+    if save_as_file.name is not None:
+        with open (save_as_file.name, 'r+') as myfile:
             data = myfile.read()
             myfile.seek(0)
             myfile.write(str(main_text.get(1.0, END)))
             myfile.truncate()
-    elif name is None and filename is not None:
-        with open (filename, 'r+') as myfile:
+    elif save_as_file.name is None and open_file.filename is not None:
+        with open (open_file.filename, 'r+') as myfile:
             data = myfile.read()
             myfile.seek(0)
             myfile.write(str(main_text.get(1.0, END)))
             myfile.truncate()
-    elif name is None and filename is None:
+    elif save_as_file.name is None and open_file.filename is None:
         save_as_file()
-    """
-    return
 
 def exit():
     w.destroy()
@@ -49,14 +52,7 @@ def new():
     main_text.delete(0.0, END)
     w.title("Haardcode")
 
-def open_file():
-    global filename
-    filename = askopenfile(mode = "r")
-    if filename is not None:
-        content = filename.read()
-        main_text.delete(0.0, END)
-        main_text.insert(END, content)
-        #print(content)
+
 def preferences():
     import preferences
 
