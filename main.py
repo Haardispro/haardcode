@@ -1,4 +1,3 @@
-#!/usr/bin/python
 from tkinter import *
 from tkinter.filedialog import *
 import tkinter.font
