@@ -10,22 +10,22 @@ w.title("Haardcode")
 w.geometry("800x600")
 
 def save_as_file():
-    name = None
+    
     f=asksaveasfile(mode="w", defaultextension=".txt")
     if f is None:
         return 
     else:
-        name = f.name
-        base = os.path.basename(name)
+        save_as_file.name = f.name
+        base = os.path.basename(save_as_file.name)
         w.title("Haardcode - {}".format(base))
     text2save=str(main_text.get(1.0, END))
     f.write(text2save)
     f.close()
 
 def open_file():
-    filename = askopenfile(mode = "r")
-    if filename is not None:
-        content = filename.read()
+    open_file.filename = askopenfile(mode = "r")
+    if open_file.filename is not None:
+        content = open_file.filename.read()
         main_text.delete(0.0, END)
         main_text.insert(END, content)
 
