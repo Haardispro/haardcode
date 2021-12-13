@@ -3,15 +3,13 @@ from tkinter import *
 from tkinter.filedialog import *
 import tkinter.font
 import os
-#import keyboard
-#import subprocess
 
 w = Tk()
 w.title("Haardcode")
 w.geometry("800x600")
 
 def save_as_file():
-    
+    save_as_file.name = None
     f=asksaveasfile(mode="w", defaultextension=".txt")
     if f is None:
         return 
@@ -31,21 +29,21 @@ def open_file():
         main_text.insert(END, content)
 
 def save():
-    if save_as_file.name is not None:
-        with open (save_as_file.name, 'r+') as myfile:
-            data = myfile.read()
-            myfile.seek(0)
-            myfile.write(str(main_text.get(1.0, END)))
-            myfile.truncate()
-    elif save_as_file.name is None and open_file.filename is not None:
-        with open (open_file.filename, 'r+') as myfile:
-            data = myfile.read()
-            myfile.seek(0)
-            myfile.write(str(main_text.get(1.0, END)))
-            myfile.truncate()
-    elif save_as_file.name is None and open_file.filename is None:
+    try:
+        if save_as_file.name is not None:
+            with open (save_as_file.name, 'r+') as myfile:
+                data = myfile.read()
+                myfile.seek(0)
+                myfile.write(str(main_text.get(1.0, END)))
+                myfile.truncate()
+        elif save_as_file.name is None and open_file.filename is not None:
+            with open (open_file.filename, 'r+') as myfile:
+                data = myfile.read()
+                myfile.seek(0)
+                myfile.write(str(main_text.get(1.0, END)))
+                myfile.truncate()
+    except AttributeError:
         save_as_file()
-
 def exit():
     w.destroy()
 
