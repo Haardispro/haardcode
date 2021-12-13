@@ -1,5 +1,30 @@
-# HaardCode - Better than the bitches
+# HaardCode 🖹
+HaardCode is an easier and faster ⚡⚡ text editor to achieve maximum productivity and maximize profits #Stonks.
 
-> Status = In development 
+# Features 🌟
+> Super Fast
 
-> Save not working (yet)
+> Simple Interface
+
+> Customized Themes
+
+> Privacy
+
+> Security
+
+> Made with Python
+
+> Comfortable
+
+# Contribution
+> Fork the repo
+
+> Add your improvements
+
+> Make a pull request
+
+> Success
+
+> OR 
+
+> Make an issue with feature tag and advice us.
