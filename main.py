@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 from tkinter import *
 from tkinter.filedialog import *
 import tkinter.font
@@ -68,8 +69,8 @@ menubar=Menu(w, font=font, bg="#282828", fg="#f8f8f2", relief=FLAT)
 #Files tab
 files = Menu(menubar, tearoff=0, font=font, bg="#282828", fg="#f8f8f2", relief=FLAT)
 files.add_command(label="New", command=new)
-files.add_command(label="Save", command=save)
 files.add_command(label="Open", command=open_file)
+files.add_command(label="Save", command=save)
 files.add_command(label="Save as..", command=lambda:save_as_file())
 files.add_command(label="Print")
 files.add_separator()
