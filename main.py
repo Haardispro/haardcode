@@ -4,6 +4,7 @@ from tkinter.filedialog import *
 import tkinter.font
 import os,sys
 import platform
+
 Operating_System = platform.system()
 
 w = Tk()
@@ -60,7 +61,7 @@ def preferences():
 def about():
     import about
 def printDocument():
-    pass
+    import printDocument
 
 #Font
 n=14
