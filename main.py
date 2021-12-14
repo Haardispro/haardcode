@@ -24,8 +24,7 @@ def open_file():
     if open_file.filename is not None:
         content = open_file.filename.read()
         main_text.delete(0.0, END)
-        main_text.insert(END, content)
-
+        main_text.insert(END, content) 
 def save():
     try:
         if save_as_file.name is not None:
@@ -56,6 +55,9 @@ def preferences():
 
 def about():
     import about
+
+def print():
+    return
 #Font
 font = tkinter.font.Font(family='Cascadia Code', size=14)
 
