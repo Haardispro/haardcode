@@ -2,10 +2,7 @@
 from tkinter import *
 from tkinter.filedialog import *
 import tkinter.font
-import os,sys
-import platform
-
-Operating_System = platform.system()
+import os
 
 w = Tk()
 w.title("Haardcode")
@@ -60,9 +57,6 @@ def preferences():
 
 def about():
     import about
-def printDocument():
-    import printDocument
-
 #Font
 n=14
 font = tkinter.font.Font(family='Cascadia Code', size=n)
@@ -76,7 +70,7 @@ files.add_command(label="New", command=new)
 files.add_command(label="Open", command=open_file)
 files.add_command(label="Save", command=save)
 files.add_command(label="Save as..", command=lambda:save_as_file())
-files.add_command(label="Print", command=printDocument)
+files.add_command(label="Print")
 files.add_separator()
 files.add_command(label="Exit", command=exit)
 menubar.add_cascade(label="File", menu=files)
