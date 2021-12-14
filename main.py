@@ -7,7 +7,6 @@ import os
 w = Tk()
 w.title("Haardcode")
 w.geometry("800x600")
-
 def save_as_file():
     save_as_file.name = None
     f=asksaveasfile(mode="w", defaultextension=".txt")
@@ -20,7 +19,6 @@ def save_as_file():
     text2save=str(main_text.get(1.0, END))
     f.write(text2save)
     f.close()
-
 def open_file():
     open_file.filename = askopenfile(mode = "r")
     if open_file.filename is not None:
@@ -44,6 +42,7 @@ def save():
                 myfile.truncate()
     except AttributeError:
         save_as_file()
+
 def exit():
     w.destroy()
 
@@ -58,8 +57,7 @@ def preferences():
 def about():
     import about
 #Font
-n=14
-font = tkinter.font.Font(family='Cascadia Code', size=n)
+font = tkinter.font.Font(family='Cascadia Code', size=14)
 
 #Menubar
 menubar=Menu(w, font=font, bg="#282828", fg="#f8f8f2", relief=FLAT)
