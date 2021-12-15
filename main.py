@@ -56,8 +56,26 @@ def preferences():
 def about():
     import about
 
-def print():
-    return
+def print(): 
+    a = Tk()
+    a.title("Print")
+    a.configure(bg="#282828")
+    a.resizable(width=False, height=False)
+    font=("Cascadia Code", 14)
+    #Before printing set default printer
+    heading = Label(a, text="Printing options", font=font, fg="white", bg="#282828")
+    note = Label(a, text="Note: Before you print, please set your default printer", font=font, fg="white", bg="#282828")
+    #normal button
+    normal = Button(a, text="Normal Print", font=font)
+    #landscapes button
+    lanscape = Button(a, text="Landscape Print", font=font)
+    #positions
+    heading.grid(row=0, column=0, padx=10, pady=10)
+    note.grid(row=1, column=0, padx=10, pady=10)
+    normal.grid(row=2, column=0, padx=10, pady=10)
+    lanscape.grid(row=3, column=0, padx=10, pady=10)
+    a.mainloop()
+
 #Font
 font = tkinter.font.Font(family='Cascadia Code', size=14)
 
@@ -70,7 +88,7 @@ files.add_command(label="New", command=new)
 files.add_command(label="Open", command=open_file)
 files.add_command(label="Save", command=save)
 files.add_command(label="Save as..", command=lambda:save_as_file())
-files.add_command(label="Print")
+files.add_command(label="Print", command=print)
 files.add_separator()
 files.add_command(label="Exit", command=exit)
 menubar.add_cascade(label="File", menu=files)
