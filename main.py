@@ -1,8 +1,10 @@
 #!/usr/bin/env python
 from tkinter import *
 from tkinter.filedialog import *
+from tkinter import messagebox
 import tkinter.font
 import os
+import platform 
 
 w = Tk()
 w.title("Haardcode")
@@ -49,31 +51,50 @@ def new():
     main_text.delete(0.0, END)
     w.title("Haardcode")
 
-
+#Shitty code 
 def preferences():
-    import preferences
-
+    os.system("python preferences.py")
 def about():
-    import about
+    os.system("python about.py")
 
+#printing
 def print(): 
     a = Tk()
     a.title("Print")
     a.configure(bg="#282828")
     a.resizable(width=False, height=False)
     font=("Cascadia Code", 14)
+    operating_system = platform.system()
+    def normal_print():
+        #lpr file.text
+        if operating_system == 'Linux':
+            try:
+                if save_as_file.name is not None:
+                    os.system("lp {}".format(save_as_file.name))
+                    a.destroy()
+                elif save_as_file.name is None and open_file.filename is not None:
+                    os.system("lp {}".format(open_file.filename))
+                    a.destroy()
+            except AttributeError:
+                messagebox.showerror("Error", "Please save the file before printing")
+                a.destroy()
+        elif operating_system == 'Windows':
+            try:
+                if save_as_file.name is not None:
+                    os.system("notepad /p {}".format(save_as_file.name))
+                elif save_as_file.name is None and open_file.filename is not None:
+                    os.system("notepad /p {}".format(open_file.filename))
+            except AttributeError:
+                messagebox.showerror("Error", "Please save the file before printing")
     #Before printing set default printer
     heading = Label(a, text="Printing options", font=font, fg="white", bg="#282828")
     note = Label(a, text="Note: Before you print, please set your default printer", font=font, fg="white", bg="#282828")
     #normal button
-    normal = Button(a, text="Normal Print", font=font)
-    #landscapes button
-    lanscape = Button(a, text="Landscape Print", font=font)
+    normal = Button(a, text="Normal Print", font=font, command=normal_print)
     #positions
     heading.grid(row=0, column=0, padx=10, pady=10)
     note.grid(row=1, column=0, padx=10, pady=10)
     normal.grid(row=2, column=0, padx=10, pady=10)
-    lanscape.grid(row=3, column=0, padx=10, pady=10)
     a.mainloop()
 
 #Font
@@ -109,9 +130,6 @@ main_text = Text(w, width=800, height=600, wrap=WORD, font=font, bg="#282828", f
 
 #positions
 main_text.grid(row=1, column=0)
-
-w.winfo_geometry()
-
 w.config(menu=menubar)
 w.mainloop()
 
