@@ -53,8 +53,10 @@ def new():
     w.title("Haardcode")
 
 #Shitty code 
+"""
 def preferences():
     os.system("python preferences.py")
+"""
 def about():
     os.system("python about.py")
 
@@ -117,8 +119,8 @@ menubar.add_cascade(label="File", menu=files)
 
 #Edit
 edit = Menu(menubar, tearoff=0, font=font, bg="#282828", fg="#f8f8f2", relief=FLAT)
-edit.add_command(label="Preferences", command=preferences)
-menubar.add_cascade(label="Edit", menu=edit)
+#edit.add_command(label="Preferences", command=preferences)
+#menubar.add_cascade(label="Edit", menu=edit)
 
 #About
 menubar.add_command(label="About", command=about)
