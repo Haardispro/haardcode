@@ -12,6 +12,8 @@ HaardCode is an easier and faster ⚡⚡ text editor to achieve maximum producti
 
 > Security
 
+> Printing Support
+
 > Made with Python
 
 > Comfortable
