@@ -5,6 +5,7 @@ from tkinter import messagebox
 import tkinter.font
 import os
 import platform 
+import io
 
 w = Tk()
 w.title("Haardcode")
@@ -58,7 +59,7 @@ def about():
     os.system("python about.py")
 
 #printing
-def print(): 
+def print_file(): 
     a = Tk()
     a.title("Print")
     a.configure(bg="#282828")
@@ -72,20 +73,20 @@ def print():
                 if save_as_file.name is not None:
                     os.system("lp {}".format(save_as_file.name))
                     a.destroy()
-                elif save_as_file.name is None and open_file.filename is not None:
-                    os.system("lp {}".format(open_file.filename))
-                    a.destroy()
             except AttributeError:
-                messagebox.showerror("Error", "Please save the file before printing")
-                a.destroy()
+                if open_file.filename is not None:
+                    os.system("lp {}".format(open_file.filename.name))
+                    a.destroy()
+       
         elif operating_system == 'Windows':
             try:
                 if save_as_file.name is not None:
                     os.system("notepad /p {}".format(save_as_file.name))
-                elif save_as_file.name is None and open_file.filename is not None:
-                    os.system("notepad /p {}".format(open_file.filename))
+
             except AttributeError:
-                messagebox.showerror("Error", "Please save the file before printing")
+                if open_file.filename is not None:
+                    os.system("notepad /p {}".format(open_file.filename.name))
+       
     #Before printing set default printer
     heading = Label(a, text="Printing options", font=font, fg="white", bg="#282828")
     note = Label(a, text="Note: Before you print, please set your default printer", font=font, fg="white", bg="#282828")
@@ -109,7 +110,7 @@ files.add_command(label="New", command=new)
 files.add_command(label="Open", command=open_file)
 files.add_command(label="Save", command=save)
 files.add_command(label="Save as..", command=lambda:save_as_file())
-files.add_command(label="Print", command=print)
+files.add_command(label="Print", command=print_file)
 files.add_separator()
 files.add_command(label="Exit", command=exit)
 menubar.add_cascade(label="File", menu=files)
