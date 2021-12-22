@@ -5,11 +5,14 @@ from tkinter import messagebox
 import tkinter.font
 import os
 import platform 
-import io
+
 
 w = Tk()
 w.title("Haardcode")
 w.geometry("800x600")
+scroll_bar=Scrollbar(w)
+
+
 def save_as_file():
     save_as_file.name = None
     f=asksaveasfile(mode="w", defaultextension=".txt")
@@ -135,4 +138,3 @@ main_text = Text(w, width=800, height=600, wrap=WORD, font=font, bg="#282828", f
 main_text.grid(row=1, column=0)
 w.config(menu=menubar)
 w.mainloop()
-
