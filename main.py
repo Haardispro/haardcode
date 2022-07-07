@@ -60,17 +60,13 @@ def save():
 def exit():
     w.destroy()
 
-
 def new():
     main_text.delete(0.0, END)
     w.title("Haardcode")
 
-
-
 def about():
     os.system("python about.py")
-
-
+#nice
 def print_file():
     """Printing"""
     a = Tk()
@@ -120,13 +116,14 @@ files = Menu(menubar, tearoff=0, font=font, bg=GLOBAL_THEME.background, fg=GLOBA
 files.add_command(label="New", command=new)
 files.add_command(label="Open", command=open_file)
 files.add_command(label="Save", command=save)
-files.add_command(label="Save as..", command=lambda: save_as_file())
+files.add_command(label="Save as..", command=lambda:save_as_file())
 files.add_command(label="Print", command=print_file)
 files.add_separator()
 files.add_command(label="Exit", command=exit)
 menubar.add_cascade(label="File", menu=files)
 
-main_text = Text(w, width=800, height=600, wrap=WORD, font=font, bg=GLOBAL_THEME.background, fg=GLOBAL_THEME.foreground, insertbackground='white', highlightthickness=0, relief=SOLID)
+# Main writing area
+main_text = Text(w, width=800, height=600, wrap=WORD, font=font, bg=GLOBAL_THEME.background, fg=GLOBAL_THEME.foreground, insertbackground=GLOBAL_THEME.foreground, highlightthickness=0, relief=SOLID)
 
 # TODO: Continue here:
 #   - Theme loader function
@@ -161,7 +158,7 @@ def pick_theme():
                 fg=GLOBAL_THEME.foreground,
                 font=font)
 
-        print("Theme changed.")
+        #print("Theme changed.")
         theme_window.destroy()
 
     # Available themes in themes folder
@@ -174,7 +171,7 @@ def pick_theme():
     frame = Frame(theme_window)
     options = OptionMenu(frame, clicked, *themes)
     load_btn = Button(frame, text="Load theme", command=load_theme)
-    load_btn.configure(bg=GLOBAL_THEME.background, fg=GLOBAL_THEME.foreground)
+    load_btn.configure(bg=GLOBAL_THEME.background, fg=GLOBAL_THEME.foreground, font=font)
     options.pack()
     load_btn.pack()
     frame.grid(sticky="ne")
