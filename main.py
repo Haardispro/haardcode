@@ -66,11 +66,7 @@ def new():
     w.title("Haardcode")
 
 
-# Shitty code 
-"""
-def preferences():
-    os.system("python preferences.py")
-"""
+
 def about():
     os.system("python about.py")
 
@@ -175,7 +171,6 @@ def pick_theme():
     #theme_window.geometry("400x200")
     clicked = StringVar()
     clicked.set(themes[0])
-
     frame = Frame(theme_window)
     options = OptionMenu(frame, clicked, *themes)
     load_btn = Button(frame, text="Load theme", command=load_theme)
