@@ -107,13 +107,24 @@ def initialize_themes_folder():
     path provided by `get_themes_folder_path()` and saves the default theme as
     `default.json`
     """
+    light_theme = {
+        "foreground": DEFAULT_BACKGROUND,
+        "background": DEFAULT_FOREGROUND,
+        "font": DEFAULT_FONT,
+        "font_size": DEFAULT_FONT_SIZE
+    }
     themes_path = get_themes_folder_path()
     if not os.path.isdir(themes_path):
         print(f"Creating themes folder in {themes_path}")
         os.mkdir(themes_path)
+
+        # Save default themes (default/dark and light)
         save_theme_to_themes_folder(
                 "default",
                 get_theme_from_dict(DEFAULT_THEME_DICT))
+        save_theme_to_themes_folder(
+                "light",
+                get_theme_from_dict(light_theme))
 
     else:
         pass

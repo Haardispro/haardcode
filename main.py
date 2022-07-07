@@ -189,7 +189,7 @@ def pick_theme():
 # Edit
 edit = Menu(menubar, tearoff=0, font=font, bg=GLOBAL_THEME.background, fg=GLOBAL_THEME.foreground, relief=FLAT)
 #edit.add_command(label="Preferences", command=preferences)
-edit.add_command(label="themes", command=pick_theme)
+edit.add_command(label="Themes", command=pick_theme)
 menubar.add_cascade(label="Edit", menu=edit)
 
 #About
